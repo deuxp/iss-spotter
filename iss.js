@@ -1,11 +1,11 @@
 /* Spot the ISS station **\
  * ========================================================================================
- * 1. [x] Fetch our IP address
- * 2. [x] Fetch the geo coordinates for our IP
- * 3. [] Fetch the next ISS fly-fovers for our geo coordinates
- * 4. [] match time and date when the ISS is flying overhead my location
- * 5. [] iss flyover handle incorrect latitude or longitude data
- * 6. [] install and write mocha tests
+ * 1. Fetch our IP address
+ * 2. Fetch the geo coordinates for our IP
+ * 3. Fetch the next ISS fly-fovers for our geo coordinates
+ * 4. match time and date when the ISS is flying overhead my location
+ * 5. iss flyover handle incorrect latitude or longitude data
+ * 6. install and write mocha tests
  *
  * NOTE:
  * Each step is dependent on the last, so nesting and call backs are taken with great care
@@ -114,7 +114,7 @@ const nextISSTimesForMyLocation = function(callback) {
       });
     });
   });
-   
+  // pay attention to how they are passed to each function call within the callback: each callback was defined in your functions the same. 2 params -> and error and a callback.. each function was cdefined with a param for the necessary passed down response or resolve from the previeous func and a a callback.. to be passed in to deal wit the respons or dat from this func.
 };
 
 
