@@ -11,8 +11,4 @@ nextISSTimesForMyLocation((error, passTimes) => {
 
 });
 
-
-
-
-
-
+// when testing out the request functions .. keep the logging callback as generic as possible and define inline.. cause in the end you are going to be passing another useful fetch function that you defined earlier. So there is no need to create a modular logging function.
