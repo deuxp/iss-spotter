@@ -88,7 +88,7 @@ const fetchFLyOverTimes = function(coordinates, cb) {
     } // this will also have to handle invalid lat and or lon data
 
     const iss = JSON.parse(body);
-    cb(null, iss);
+    cb(err, iss);
     
     
   });
@@ -107,10 +107,12 @@ const fetchFLyOverTimes = function(coordinates, cb) {
  */
 const nextISSTimesForMyLocation = function(callback) {
 
-  fetchMyIP((err, ip) => {
+  fetchMyIP((err, ip) => { // still need to define the errors here and under
+    if (err) return callback(err) // this err will call the callback defined in the final index.js glue func. Has to be handled in these new callback calls with the func in there. the only difference is that instead of cb() being called for when there is no error, the next function in the chain .. THen() is called.
     fetchCoordsByIP(ip, (err, coordinates) => {
+      if (err) return callback(err)
       fetchFLyOverTimes(coordinates, (err, times) => {
-        callback(err, times);
+        callback(err, times); // finally end in the callback that will be implemented on the index.js run file.
       });
     });
   });
