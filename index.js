@@ -9,7 +9,7 @@ nextISSTimesForMyLocation((error, passTimes) => {
     console.log(`Next pass at ${new Date(flyby.risetime)} for ${flyby.duration} seconds!`);
   });
 
-})
+});
 
 
 
